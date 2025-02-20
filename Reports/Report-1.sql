@@ -2,7 +2,7 @@
 
 -- Customer type wise Product Performance ranking 
 
-select product_line,customer_type,total_revenue,rank() over(partition by product_line,customer_type order by total_revenue desc) as rank 
+select product_line,customer_type,total_revenue,dense_rank() over(partition by product_line,customer_type order by total_revenue desc) as rank 
 from (
 select 
 pld.product_line,ctd.customer_type,sum(sf.total) as total_revenue
