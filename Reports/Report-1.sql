@@ -1,7 +1,7 @@
 -- Report-1
 
-
 -- Customer type wise Product Performance ranking 
+
 select product_line,customer_type,total_revenue,rank() over(partition by product_line,customer_type order by total_revenue desc) as rank 
 from (
 select 
